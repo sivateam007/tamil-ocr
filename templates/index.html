@@ -110,7 +110,7 @@
                 </div>
 
                 <div class="options-grid" id="translate-options" style="display: none;">
-                    <input type="hidden" name="mode" value="translate">
+                    <input type="hidden" name="mode" value="translate" id="mode-input">
                     <div class="option-group">
                         <label class="option-label">Source Language</label>
                         <select name="source_language" id="source-language-select" class="select-input">
@@ -231,6 +231,7 @@
         const docTab = document.getElementById('doc-tab');
         const dataTab = document.getElementById('data-tab');
         const translateTab = document.getElementById('translate-tab');
+        const modeInput = document.getElementById('mode-input');
 
         function switchTab(tab) {
             const allTabs = [pdfTab, imageTab, docTab, dataTab, translateTab];
@@ -261,6 +262,7 @@
                 translateInfoBox.style.display = 'none';
                 ocrNote.style.display = 'block';
                 translateNote.style.display = 'none';
+                modeInput.disabled = true;
             } else if (tab === 'image') {
                 imageTab.style.background = 'var(--git-color)';
                 imageTab.style.color = 'white';
@@ -277,6 +279,7 @@
                 translateInfoBox.style.display = 'none';
                 ocrNote.style.display = 'block';
                 translateNote.style.display = 'none';
+                modeInput.disabled = true;
             } else if (tab === 'doc') {
                 docTab.style.background = 'var(--git-color)';
                 docTab.style.color = 'white';
@@ -293,6 +296,7 @@
                 translateInfoBox.style.display = 'none';
                 ocrNote.style.display = 'block';
                 translateNote.style.display = 'none';
+                modeInput.disabled = true;
             } else if (tab === 'data') {
                 dataTab.style.background = 'var(--git-color)';
                 dataTab.style.color = 'white';
@@ -309,6 +313,7 @@
                 translateInfoBox.style.display = 'none';
                 ocrNote.style.display = 'block';
                 translateNote.style.display = 'none';
+                modeInput.disabled = true;
             } else if (tab === 'translate') {
                 translateTab.style.background = 'var(--git-color)';
                 translateTab.style.color = 'white';
@@ -325,6 +330,7 @@
                 translateInfoBox.style.display = 'block';
                 ocrNote.style.display = 'none';
                 translateNote.style.display = 'block';
+                modeInput.disabled = false;
             }
 
             fileInput.accept = accept;
